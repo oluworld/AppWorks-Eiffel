@@ -113,7 +113,7 @@ feature
 			elseif args.has("version") then
 				!!evt.make(Current)
 				evt.set_msg("expose onassist")
-				evt.add_str("version", "true")
+				evt.add_str("version", "True")
 				evt.fire_to(Current)
 				quit
 			else
@@ -132,7 +132,7 @@ feature
 		do
 			pre_quit
 			my_ret_val  := rc
-			my_quit_now := TRUE
+			my_quit_now := True
 			post_quit
 		end -- quit_with_val
 

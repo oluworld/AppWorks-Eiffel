@@ -11,6 +11,8 @@ class ROOT
 
 inherit
 	APPWORKS_MAIN_LOGIC
+	ARGUMENTS
+	
 creation
 	make
 

@@ -1,0 +1,3 @@
+class ELJ_BUFFER_READER
+
+end -- class ELJ_BUFFER_READER

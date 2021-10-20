@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+
+<project name="elj_c" default="help" inherit="$ELJ/lib/build_c.eant">
+
+	<description>
+		description: "Eiffel Ant file to compile ELJ's sleepycat C files"
+		copyright: "Copyright (c) 2002, Sven Ehrke and others"
+		license: "Eiffel Forum License v1 (see forum.txt)"
+		date: "$Date: 2002/04/07 20:16:19 $"
+		revision: "$Revision: 1.1 $"
+	</description>
+
+	<target name="init">
+		<description>
+			Initialize variables.
+		</description>
+
+		<set name="obj_dir" value="${ELJ}/lib/obj"/>
+		<set name="c_source_dir" value="${ELJ}/lib/ifs/c/win32"/>
+	</target>
+
+</project>

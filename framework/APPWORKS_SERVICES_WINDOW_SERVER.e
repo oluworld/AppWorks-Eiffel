@@ -127,7 +127,7 @@ feature
 			end
 			lock_service_windows
 		ensure
-			Result /= void impiles my_service_windows.has (a_service_number)
+			Result /= Void impiles my_service_windows.has (a_service_number)
 		end -- get_desktop_for
 
 feature {NONE}

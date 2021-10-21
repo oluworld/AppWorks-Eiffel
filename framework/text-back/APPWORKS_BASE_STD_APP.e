@@ -23,7 +23,14 @@ feature -- Running
 
 	should_quit_now: BOOLEAN is
 		do
+			my_quit_now := True
 			Result := my_quit_now = True
 		end -- should_quit_now
+
+feature
+
+	my_quit_now: BOOLEAN is
+		deferred
+		end
 
 end -- class APPWORKS_BASE_STD_APP

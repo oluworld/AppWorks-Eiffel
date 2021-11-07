@@ -156,6 +156,14 @@ feature -- Running
 			Result := my_ret_val
 		end -- run
 
+	should_quit_now: BOOLEAN is
+		deferred
+		end -- should_quit_now
+
+	do_run is
+		deferred
+		end -- do_run
+
 feature -- Init-time features
 
 	set_app_name (a_name : STRING) is
@@ -201,6 +209,31 @@ feature -- Events
 			end	
 		end -- on_assist
 
+
+	ok_event: APPWORKS_BASE_EVENT is
+			-- TODO
+		do
+		end -- ok_event
+
+	bad_event1: APPWORKS_BASE_EVENT is
+			-- TODO
+		do
+		end -- bad_event1
+
+	display_help_message(version_string: STRING) is
+			-- TODO
+		do
+
+		end -- display_help_message
+
+	get_version_string: STRING is
+		deferred
+		end -- get_version_string
+
+	get_help_string: STRING is
+		do
+		end -- get_help_string
+		
 feature -- "Shell" functions
 
 	--  execute a shell command. return a Msg.Event 
@@ -220,20 +253,20 @@ feature {APPWORKS_MAIN_LOGIC}
 
 feature
 
-	xunix_init (argc: INTEGER; argv: POINTER) is
-		local
-			i    : INTEGER
-			args : LINKED_LIST[STRING]
-		do
-			from 
-				i := 1
-			until
-				i > argument_count
-			loop
-				args.add_last(argument(i))
-				i := i + 1
-			end
-		end -- unix_init
+--	xunix_init (argc: INTEGER; argv: POINTER) is
+--		local
+--			i    : INTEGER
+--			args : LINKED_LIST[STRING]
+--		do
+--			from 
+--				i := 1
+--			until
+--				i > argument_count
+--			loop
+--				args.add_last(argument(i))
+--				i := i + 1
+--			end
+--		end -- unix_init
 		
 	unix_init (argc: INTEGER; argv: NATIVE_ARRAY[POINTER]) is
 		local

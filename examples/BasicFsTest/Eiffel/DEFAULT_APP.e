@@ -28,12 +28,12 @@ feature
 			fr.set_main_frame
 
 			!! sp.make
-			fr.insert_child (sp, "Splitter", true)
+			fr.insert_child (sp, "Splitter", True)
 
 			!! t.make
 			!! btn.make
-			sp.insert_child (t,   "Table",  true)
-			sp.insert_child (btn, "Button", true)
+			sp.insert_child (t,   "Table",  True)
+			sp.insert_child (btn, "Button", True)
 
 --			t.settop     	(0, 0)
 --			t.set_size   	(150, 150)

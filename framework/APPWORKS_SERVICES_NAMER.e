@@ -1,4 +1,4 @@
-inherit
+indexing
 	description: "used for AppScript"
 
 class APPWORKS_SERVICES_NAMER

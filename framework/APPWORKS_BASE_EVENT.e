@@ -11,7 +11,7 @@ indexing
 
 class APPWORKS_BASE_EVENT 
 
-inherit
+insert
 	SHARED_MESSAGE_SERVER_ACCESS
 
 creation

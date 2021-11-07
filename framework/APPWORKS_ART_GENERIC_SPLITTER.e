@@ -3,7 +3,7 @@ indexing
 	description: "An area which allows two smaller areas to be proportionally resized"
 	library:     "AppWorks/Art"
 	author:      "Mysterious Committer <oluoluolu@protonmail.com>"
-	copyright:   "Copyright (c) 1999-2001, OluWorld SoftWorks!"
+	copyright:   "Copyright (c) 1999-2021, OluWorld SoftWorks!"
 --	license:     ""
 	completed:   no
 	tested:      currently
@@ -52,7 +52,7 @@ feature
 --			show
 		end -- post_create
 
-	get_style : BIT 32 is
+	get_style : INTEGER_32 is
 		do
 			Result := WS_CHILD or WS_VISIBLE or WS_CLIPCHILDREN.to_bit
 		end -- get_style

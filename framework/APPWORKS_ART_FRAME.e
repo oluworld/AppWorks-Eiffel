@@ -78,7 +78,7 @@ feature
 	
 feature
 		
-	get_style : BIT 32 is
+	get_style : INTEGER_32 is
 		do
 			Result := WS_OVERLAPPEDWINDOW
 		end -- get_style

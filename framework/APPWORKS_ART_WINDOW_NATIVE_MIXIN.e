@@ -20,6 +20,16 @@ feature -- native handle
 			get_native_handle = h
 		end -- set_native_handle
 
+feature
+
+	window_server   : APPWORKS_SERVICES_WINDOW_SERVER is
+		deferred
+		end -- window_server
+
+	ws_handle       : INTEGER is --WINDOW_SERVER_HANDLE
+		deferred
+		end -- ws_handle
+
 feature {NONE}
 	my_native_handle: POINTER
 

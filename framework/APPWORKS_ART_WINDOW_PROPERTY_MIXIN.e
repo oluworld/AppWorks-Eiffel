@@ -2,13 +2,27 @@ deferred class APPWORKS_ART_WINDOW_PROPERTY_MIXIN
 
 feature
 
+	set_prop (a_name, a_value: STRING) is
+		deferred
+		end -- set_prop
+
+	set_int_prop (a_name: STRING; a_value: INTEGER) is
+		deferred
+		end -- set_prop
+
+	get_prop (a_name: STRING): STRING is
+		deferred
+		end -- get_prop
+
+feature
+
 	set_title_prop (a_title: STRING) is
 		require
 			valid_title: a_title /= Void
 		do
 			set_prop ("title", a_title)
 		ensure
-			definition: equal(get_prop("title"), a_title)
+			definition: is_equal(get_prop("title"), a_title)
 		end -- set_title
 
 	get_title_prop : STRING is

@@ -16,6 +16,9 @@ class APPWORKS_ART_WINDOW
 inherit
 	-- type inheritance
 	APPWORKS_ART_WINDOW_BASE
+		rename
+			set_title as base_set_title
+		end
 	
 creation
 	make
@@ -30,6 +33,7 @@ feature
 	set_title (a_title: STRING) is
 		do
 			set_title_prop (a_title)
+--			base_set_title (a_title) -- TODO: figure this out
 		end -- get_title
 	
 	xget_title: STRING is

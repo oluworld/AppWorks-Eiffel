@@ -1,7 +1,6 @@
 expanded class WINDOW_SERVER_HANDLE
 
 inherit
---	INTEGER
 	COMPARABLE
 
 feature
@@ -13,6 +12,6 @@ feature
 
 feature
 
-	i: expanded INTEGER
+	i: INTEGER
 
 end -- class WINDOW_SERVER_HANDLE

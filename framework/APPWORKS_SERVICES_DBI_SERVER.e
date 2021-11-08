@@ -40,7 +40,7 @@ feature
 		local
 			r         : COLLECTION[APPWORKS_DBI_VALUE]
 			x         : LINKED_LIST[STRING]			
-			r_iter    : ITERATOR_ON_COLLECTION[APPWORKS_DBI_VALUE]
+			r_iter    : ITERATOR_ON_TRAVERSABLE[APPWORKS_DBI_VALUE]
 		do
 			r := enum (a_topkey, a_root)
 			!! x.make
@@ -62,7 +62,7 @@ feature
 			r 				: COLLECTION[APPWORKS_DBI_VALUE]
 			top 			: STRING
 			flag            : BOOLEAN
-			handler_iter 	: ITERATOR_ON_COLLECTION[APPWORKS_DBI_HANDLER]
+			handler_iter 	: ITERATOR_ON_TRAVERSABLE[APPWORKS_DBI_HANDLER]
 		do
 			top := translate_path (a_topkey, a_root)
 			lock
@@ -72,10 +72,10 @@ feature
 				!! handler_iter.make (handlers)
 				handler_iter.start
 			until
-				flag = TRUE or else handler_iter.is_off
+				flag = True or else handler_iter.is_off
 			loop
 				if handler_iter.item.can_open(top, for_enum) then
-					flag := TRUE
+					flag := True
 					print (flag)
 					handler_iter.item.begin (top)
 				else
@@ -120,8 +120,9 @@ feature
 			working : STRING
 		do						
 			from
-				!! Result.make 
-				working := clone (a_str)
+				!! Result.make
+				!! working.make
+				working.copy(a_str)
 			until
 				i = a_str.count + 1
 			loop
@@ -135,7 +136,8 @@ feature
 	progressive_parse (a_str, a_sep : STRING; a_col : COLLECTION[STRING]) is
 			-- IGNORE: it is the callers' job to clear the collection
 		local
-			r : LINKED_LIST[STRING]
+			r: LINKED_LIST[STRING]
+			x: INTEGER
 		do
 			a_col.clear			
 			r := xsplit (a_str, a_sep)
@@ -159,12 +161,13 @@ feature
 		local
 			new_action 		: BOOLEAN
 			flag            : BOOLEAN
-			handler_iter 	: ITERATOR_ON_COLLECTION[APPWORKS_DBI_HANDLER]
+			handler_iter 	: ITERATOR_ON_TRAVERSABLE[APPWORKS_DBI_HANDLER]
 			b               : COLLECTION[STRING]
-			parse_path      : ITERATOR_ON_COLLECTION[STRING]
+			parse_path      : ITERATOR_ON_TRAVERSABLE[STRING]
+			top             : STRING
 		do
 			Result := Void
-			new_action := TRUE -- FALSE
+			new_action := True -- False
 			if new_action then
 				b := progressive_parse (a_path, "/")
 --				for parsePath in b:
@@ -179,11 +182,11 @@ feature
 					!! handler_iter.make (handlers)
 					handler_iter.start
 				until
-					handler_iter.is_off or else flag = TRUE
+					handler_iter.is_off or else flag = True
 				loop					
 					if handler_iter.item.can_open(top, for_get) then
 						-- place iterdata at top of handler stack
-						flag   := TRUE
+						flag   := True
 						Result := handler_iter.item.get_value (a_path)
 					else
 						handler_iter.next
@@ -193,13 +196,15 @@ feature
 			end				
 		end  -- lookup
 
-	translate_path (a_path, a_root : STRING) : STRING is
+	translate_path (a_path, a_root : STRING): STRING is
 		local
 			path, root : STRING
 		do
-			Result := clone ("")
-			path   := clone (a_path)
-			root   := clone (a_root)
+			!!Result
+			!!path.make
+			path.copy(a_path)
+			!!root.make
+			root.copy(a_root)
 			
 			--path   := 
 			fix_path_int (path, root)
@@ -253,12 +258,12 @@ feature {NONE}
 		
 	lock is
 		do
-			my_locked := TRUE
+			my_locked := True
 		end -- lock
 
 	unlock  is
 		do
-			my_locked := FALSE
+			my_locked := False
 			my_locked_list.clear
 		end -- unlock
 

@@ -13,12 +13,18 @@ indexing
 	notes:       "refactor to talk to window server, like windows does"
 	notes:       "should this apply to us too?"
 
-class APPWORKS_ART_CONTAINER
+deferred class APPWORKS_ART_CONTAINER
 
 inherit
+--	GG_UTILS
+--	APPWORKS_ART_WINDOW_PROPERTY_MIXIN
 	APPWORKS_ART_WINDOW
 		redefine loaded, xyy, on_size,
 			get_native_handle
+		end
+	APPWORKS_ART_NATIVE_WINDOW
+		rename
+			set_size as native_set_size
 		end
 
 creation
@@ -70,14 +76,14 @@ feature
 			-- a little more sense. i might actually change this to `add'
 			-- and the other `add' to `int_add'
 		require
-			get_prop_dbiroot /= void
+			get_prop_dbiroot /= Void
 		do			
 			child.create_ (Current, dbi_root, readdbi)
 		end -- insert_child
 
 	loaded is
 		do
-			Precursor
+			--Precursor -- TODO
 			add_children
 		end -- loaded
 
@@ -138,7 +144,7 @@ feature
 					iter.next
 				end
 			end
-			Precursor(h,w)
+			-- Precursor(h,w) -- TODO
 			print ("<<--  exit CONTAINER#on_size%N")
 		end -- on_size
 

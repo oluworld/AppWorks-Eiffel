@@ -430,7 +430,7 @@ feature {NONE} -- Implementation
 				if x = x_par.left then
 					w := x_par.right
 						check w /= Void end
-						-- since x is blk w is not void
+						-- since x is blk w is not Void
 					if w.is_red then
 						w.set_black
 						x_par.set_red
@@ -440,7 +440,7 @@ feature {NONE} -- Implementation
 					up := False
 					if w.left = Void or else
 						w.left.is_black then
-						up := w.right = void or else w.right.is_black
+						up := w.right = Void or else w.right.is_black
 					end
 					if up then
 						w.set_red
@@ -469,7 +469,7 @@ feature {NONE} -- Implementation
 				else
 					w := x_par.left
 						check w /= Void end
-						-- since x is blk w is not void
+						-- since x is blk w is not Void
 					if w.is_red then
 						w.set_black
 						x_par.set_red

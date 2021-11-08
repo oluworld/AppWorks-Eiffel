@@ -1,7 +1,7 @@
 indexing
 	contents:    "AppWorks TableItem Class - Win32 Native Widget Implementation"
 	description: "An area that represents a row a Table"
-	library:     "AppWorks-Art"
+	library:     "AppWorks-Art-win32"
 	author:      "Mysterious Committer <oluoluolu@protonmail.com>"
 	copyright:   "Copyright (c) 1999-2001, OluWorld SoftWorks!"
 --	license:     ""
@@ -17,12 +17,6 @@ inherit
 --	WIN32_LISTVIEW_CONSTANTS
 	WIN32_LISTVIEW_MACROS
 
-feature
-	
-	make is
-		do 
---			!! item.make
-		end -- make
 
 feature
 

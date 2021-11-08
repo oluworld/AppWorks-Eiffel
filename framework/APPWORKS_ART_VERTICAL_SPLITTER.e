@@ -22,6 +22,8 @@ inherit
 			on_size,
 			imp_on_mousemove
 		end
+
+insert
 	APPWORKS_ART_CURSOR_CONSTANTS
 
 creation 

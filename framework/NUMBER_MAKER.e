@@ -52,20 +52,20 @@ feature
 			-- or we could use a number of colls which 
 			-- would generate numbers within a range.
 			-- or maybe just use allocations.
-		local
-			ar: BINARY_LIST[INTEGER]
+--		local
+--			ar: BINARY_LIST[INTEGER]
 		do
-			!!ar.make
-			from until i> max
-			loop
-				check valid: not ar.has (i) end
-				ar.add_last(i)
-				i := i + 1
-			end
+--			!!ar.make
+--			from until i> max
+--			loop
+--				check valid: not ar.has (i) end
+--				ar.add_last(i)
+--				i := i + 1
+--			end
 		end -- test
 
 feature
 
-	random_generator : MIN_STAND
+	random_generator : MINIMAL_RANDOM_NUMBER_GENERATOR
 
 end -- NUMBER_MAKER

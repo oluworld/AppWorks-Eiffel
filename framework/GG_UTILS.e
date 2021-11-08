@@ -41,6 +41,11 @@ feature
 
 feature
 
+	get_quoted (line, name, value : STRING) is
+		do
+			-- TODO: implement me
+		end -- get_quoted
+
 	splitline (line, name, value : STRING) is
 		require
 			line_length: line.count > 0
@@ -76,9 +81,9 @@ feature
 	is_quot (c : CHARACTER) : BOOLEAN is
 		do
 			if c = '"' then
-				Result := TRUE
+				Result := True
 			elseif c = '%'' then
-				Result := TRUE
+				Result := True
 			end
 		end
 
@@ -94,7 +99,7 @@ feature
 				Result := s.substring(pos+1, s.count)
 			end
 		ensure
-			valid_result: Result = void implies not s.has(c)
+			valid_result: Result = Void implies not s.has(c)
 		end
 	
 	string_rfind (s: STRING; c: CHARACTER): INTEGER is

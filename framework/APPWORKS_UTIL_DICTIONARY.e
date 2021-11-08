@@ -34,6 +34,6 @@ feature
 
 feature
 
-	rbt: expanded RED_BLACK_TREE[K, V]
+	rbt: RED_BLACK_TREE[K, V]
 
 end -- class APPWORKS_UTIL_DICTIONARY

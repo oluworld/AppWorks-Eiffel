@@ -13,7 +13,8 @@ indexing
 class APPWORKS_ART_FRAME
 
 inherit
-	APPWORKS_ART_NATIVE_CONTAINER
+--	APPWORKS_ART_NATIVE_CONTAINER
+	APPWORKS_ART_WINDOW	
 		rename
 			do_create as create_window
 			on_destroy as on_window_destroy
@@ -23,7 +24,13 @@ inherit
 			pre_create
 --			on_destroy
 		end
-	
+	APPWORKS_ART_NATIVE_WINDOW
+		rename
+			set_title as native_set_title
+			set_size as native_set_size
+		end
+	APPWORKS_ART_FRAME_NATIVE
+
 creation
 	make
 
@@ -31,7 +38,7 @@ feature
 	
 	pre_create is
 		do
-			Precursor
+			--Precursor
 			my_desktop := get_default_desktop
 			--my_parent := get_desktop_window
 		end -- pre_create
@@ -47,12 +54,12 @@ feature
 			--	my_owner /= Void
 			--end
 			if not True then
-				my_parent.set_native_handle (GetDesktopWindow)
+--				my_parent.set_native_handle (GetDesktopWindow)
 			else 
 				my_parent := get_default_desktop
 			end
 			create_window (my_parent, dbiroot, readdbi)
-		end -- create_
+		end -- do_create
 
 	validate_native_handle_in_post_create is
 		do
@@ -78,13 +85,6 @@ feature
 	
 feature
 		
-	get_style : INTEGER_32 is
-		do
-			Result := WS_OVERLAPPEDWINDOW
-		end -- get_style
-	
-feature
-		
 	on_destroy is
 		do
 --			Precursor
@@ -100,14 +100,9 @@ feature
 			Result := my_desktop
 		end -- get_desktop 
 
-	get_default_desktop: APPWORKS_ART_CONTAINER is
-		once
-			!!Result.make
-			Result.set_native_handle (GetDesktopWindow)
-		end -- get_default_desktop 
-
 feature {NONE}
 	
 	my_desktop : APPWORKS_ART_CONTAINER
+--	my_owner   : APPWORKS_BASE_APP
 	
 end -- class APPWORKS_ART_FRAME

@@ -37,7 +37,7 @@ feature
 				loop
 					if iter.item.can_open (spec, ENUMERATE_PERM) then
 						Result := iter.item.enumerate (spec)
-						found  := TRUE
+						found  := True
 					end
 					iter.next
 				end

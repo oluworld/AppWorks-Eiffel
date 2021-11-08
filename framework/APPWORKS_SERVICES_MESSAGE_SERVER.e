@@ -1,5 +1,3 @@
+
 class APPWORKS_SERVICES_MESSAGE_SERVER
-inherit
-creation
-feature
 end -- class APPWORKS_SERVICES_MESSAGE_SERVER

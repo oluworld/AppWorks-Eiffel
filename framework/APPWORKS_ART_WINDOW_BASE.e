@@ -56,6 +56,12 @@ feature {APPWORKS_ART_WINDOW}
 
 feature
 
+	do_nothing is
+		do
+		end -- do_nothing
+
+feature
+
 	set_layout_name (a_layout_name : STRING) is
 		do
 			set_prop ("layout_name", a_layout_name)
@@ -333,12 +339,12 @@ feature
 	sync_special_prop_in (k, v : STRING) : BOOLEAN is
 		do
 			check
-				Result = FALSE
+				Result = False
 			end
 			if k.is_equal ("layout") then
 --				!! my_layout.make
 --				my_layout.from_string (v)
-				Result := TRUE
+				Result := True
 			end
 		end -- sync_special_prop_in
 
@@ -377,7 +383,7 @@ feature -- XML layout parser functions
 		require
 			not select_began
 		do
-			select_began := TRUE
+			select_began := True
 		ensure
 			select_began
 		end -- begin_select
@@ -386,7 +392,7 @@ feature -- XML layout parser functions
 		require
 			select_began
 		do
-			select_began := FALSE
+			select_began := False
 		ensure
 			-- do we need select_ended, too?
 			not select_began

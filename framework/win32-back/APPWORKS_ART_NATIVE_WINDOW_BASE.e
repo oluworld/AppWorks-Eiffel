@@ -315,4 +315,4 @@ feature {NONE}
 	win32_state : BOOLEAN
 --	win32_rect  : WIN32_RECT	
 
-end -- class APPWORKS_ART_NATIVE_WINDOW
+end -- class APPWORKS_ART_NATIVE_WINDOW_BASE

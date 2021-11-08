@@ -3,17 +3,17 @@ indexing
 	description: "A resizable area that separates two smaller areas"
 	library:     "AppWorks-Art"
 	author:      "Mysterious Committer <oluoluolu@protonmail.com>"
-	copyright:   "Copyright (c) 1999-2001, OluWorld SoftWorks!"
+	copyright:   "Copyright (c) 1999-2021, OluWorld SoftWorks!"
 --	license:     ""
 	completed:   no
 	tested:      currently
-	date:        "$Date: 2001/03/23 14:27:16 $"
-	revision:    "$Revision: 1.1 $"
+	date:        "$Date: 2021/11/07 13:22:00 $"
 
 class APPWORKS_SERVICES_WINDOW_SERVER
 
 inherit
 	APPWORKS_ART_WINDOW_SERVER_CONSTANTS
+	APPWORKS_SERVICES_WINDOW_SERVER_NATIVE
 
 creation 
 	make
@@ -92,25 +92,7 @@ feature
 			else
 				Result := sws_failed
 			end
-		end -- bool_to_sws_status 
-
-	native_set_pos (a_service_number: INTEGER --WINDOW_SERVER_HANDLE
-
-; a_x, a_y: INTEGER): INTEGER is
-		local
-			wsi: WINDOW_SERVER_INFO
-		do
-			wsi := get_window_info (a_service_number)
-			if wsi /= Void then
-				Result := bool_to_sws_status (
-					SetWindowPos(wsi.native_handle, default_pointer, 
-						a_x, a_y, 0, 0,
-						SWP_NOACTIVATE or SWP_NOSIZE or SWP_NOZORDER))
-			else
-				Result := sws_invalid_handle
-			end
-			unlock_service_windows
-		end -- native_set_pos 
+		end -- bool_to_sws_status  
 
 feature
 
@@ -127,7 +109,7 @@ feature
 			end
 			lock_service_windows
 		ensure
-			Result /= Void impiles my_service_windows.has (a_service_number)
+			Result /= Void implies my_service_windows.has (a_service_number)
 		end -- get_desktop_for
 
 feature {NONE}

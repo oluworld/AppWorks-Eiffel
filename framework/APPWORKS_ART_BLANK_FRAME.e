@@ -9,7 +9,7 @@ indexing
 	date:        "$Date$"
 	revision:    "$Revision: 1.1.1.1 $"
 
-class APPWORKS_ART_BLANK_FRAME
+deferred class APPWORKS_ART_BLANK_FRAME
 
 inherit
 	APPWORKS_ART_FRAME
@@ -116,7 +116,7 @@ feature
 		end -- get_primary_window
 
 feature
---	my_children: SINGLE_COLLECTION[APPWORKS_ART_WINDOW]
+	my_children: COLLECTION[APPWORKS_ART_WINDOW]
 	
 invariant
 

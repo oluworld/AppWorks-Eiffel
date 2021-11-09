@@ -17,19 +17,19 @@ inherit
 		undefine
 			loaded, get_native_handle, xyy
 		redefine
-			post_create, end_select, set_initial_properties
+			post_create, set_initial_properties
 		end
 	APPWORKS_ART_NATIVE_WINDOW
 		undefine
-			imp_on_mousemove,
-			imp_on_mousedown,
-			imp_on_mouseup
+--			imp_on_mousemove,
+--			imp_on_mousedown,
+--			imp_on_mouseup
 		redefine
 --			get_style,
 --			get_register_brush,
 			post_create,
-			on_size,
-			end_select
+			on_size
+--			end_select
 		end
 	APPWORKS_ART_WINDOW_PROPERTY_MIXIN
 	APPWORKS_ART_GENERIC_SPLITTER_NATIVE
@@ -62,24 +62,6 @@ feature
 			my_cursor.from_std (splitter_cursor_name)
 --			show
 		end -- post_create
-
-
-feature 
-
-	end_select is
-		local
-			rect : WIN32_RECT
-		do
-			Precursor
-			if get_children.count = 2 then
-				!! rect.make
-				get_client_rect_in (rect)
---				on_size (rect.right, rect.bottom)
-				on_size (rect.bottom-rect.top, rect.right-rect.left)
-			else
-				print ("less than 2 children in end_select of GENERIC_SPLITTER%N")
-			end
-		end -- end_select
 
 feature 
 

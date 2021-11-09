@@ -12,7 +12,9 @@ indexing
 
 deferred class APPWORKS_ART_NATIVE_WINDOW_BASE
 
---inherit
+inherit
+	GTK_WINDOW_FUNCTIONS
+
 --	APPWORKS_ART_WINDOW
 --		redefine
 --			settop,
@@ -39,6 +41,12 @@ feature
 		deferred
 		end -- show
 
+feature
+
+	get_native_handle: POINTER is
+		deferred
+		end -- get_native_handle
+		
 feature
 
 	get_extra_clazzinfo : POINTER is
@@ -287,15 +295,15 @@ feature -- Overridden Window features
 	
 feature 
 
-	get_client_rect : GTK_POINT is
+	get_client_rect : GTK_RECT is
 		do
---			!! Result.make
---			win32_state := gtk_window_get_size(get_native_handle, Result)
+			!! Result.make
+			gtk_window_get_size(get_native_handle, Result)
 		end
 		
-	get_client_rect_in (rect : WIN32_RECT) is
+	get_client_rect_in (rect: GTK_RECT) is
 		do
---			win32_state := GetClientRect(get_native_handle, rect)
+			gtk_window_get_size(get_native_handle, rect)
 		end
 		
 feature 
